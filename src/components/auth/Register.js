@@ -7,20 +7,20 @@ export const Register = (props) => {
   const [user, setUser] = useState({
     email: "",
     fullName: "",
-    cohort: 0,
+    phoneNumber: "",
+    address: "",
   });
   let navigate = useNavigate();
 
   const registerNewUser = () => {
     const newUser = {
       ...user,
-      cohort: parseInt(user.cohort),
     };
 
     createUser(newUser).then((createdUser) => {
       if (createdUser.hasOwnProperty("id")) {
         localStorage.setItem(
-          "learning_user",
+          "glass_user",
           JSON.stringify({
             id: createdUser.id,
             staff: createdUser.isStaff,
@@ -52,50 +52,64 @@ export const Register = (props) => {
   };
 
   return (
-    <main className="auth-container">
-      <form className="auth-form" onSubmit={handleRegister}>
-        <h1 className="header">Pass the Glass</h1>
+    <main style={{ textAlign: "center" }}>
+      <form className="form-login" onSubmit={handleRegister}>
+        <h1>Pass the Glass</h1>
         <h2>Please Register</h2>
-        <fieldset className="auth-fieldset">
-          <div>
+        <fieldset>
+          <div className="form-group">
             <input
               onChange={updateUser}
               type="text"
               id="fullName"
-              className="auth-form-input"
-              placeholder="Enter your name"
+              className="form-control"
+              placeholder="Enter your full name"
               required
               autoFocus
             />
           </div>
         </fieldset>
-        <fieldset className="auth-fieldset">
-          <div>
+        <fieldset>
+          <div className="form-group">
             <input
               onChange={updateUser}
               type="email"
               id="email"
-              className="auth-form-input"
+              className="form-control"
               placeholder="Email address"
               required
             />
           </div>
         </fieldset>
-        <fieldset className="auth-fieldset">
-          <div>
+        <fieldset>
+          <div className="form-group">
             <input
               onChange={updateUser}
-              type="number"
-              id="cohort"
-              className="auth-form-input"
-              placeholder="Cohort #"
+              type="tel"
+              id="phone-number"
+              className="form-control"
+              placeholder="Phone number"
               required
             />
           </div>
         </fieldset>
-        <fieldset className="auth-fieldset">
-          <div>
-            <button type="submit">Register</button>
+        <fieldset>
+          <div className="form-group">
+            <input
+              onChange={updateUser}
+              type="text"
+              id="address"
+              className="form-control"
+              placeholder="Enter your full address"
+              required
+            />
+          </div>
+        </fieldset>
+        <fieldset>
+          <div className="form-group">
+            <button className="login-btn btn-info" type="submit">
+              Register
+            </button>
           </div>
         </fieldset>
       </form>
