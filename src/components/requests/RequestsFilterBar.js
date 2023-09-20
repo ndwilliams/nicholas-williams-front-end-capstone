@@ -1,7 +1,3 @@
-import { useEffect, useState } from "react";
-import { getAllDays } from "../../services/daysServices";
-import { getRequestsByDay } from "../../services/requestsService";
-
 export const RequestsFilterBar = ({
   setRequestsByDay,
   daysOfWeek,
@@ -17,7 +13,11 @@ export const RequestsFilterBar = ({
       >
         <option value={0}>Filter By Day</option>
         {daysOfWeek.map((dayObj) => {
-          return <option value={dayObj.id}>{dayObj.name}</option>;
+          return (
+            <option key={dayObj.id} value={dayObj.id}>
+              {dayObj.name}
+            </option>
+          );
         })}
       </select>
       <input

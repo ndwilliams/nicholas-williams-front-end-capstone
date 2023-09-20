@@ -6,10 +6,10 @@ export const Navbar = ({ currentUser }) => {
   return (
     <ul className="navbar">
       <li className="navbar-item">
-        <Link to="/requests">All Requests</Link>
+        <Link to="/AllRequests">All Requests</Link>
       </li>
       <li className="navbar-item">
-        <Link to="/myrequests">My Requests</Link>
+        <Link to="/MyRequests/all">My Requests</Link>
       </li>
       <li className="navbar-item">
         <Link to="/profile">Profile</Link>

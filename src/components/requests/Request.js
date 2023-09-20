@@ -1,4 +1,4 @@
-export const Request = ({ currentUser, getAndSetRequests, request }) => {
+export const Request = ({ currentUser, request }) => {
   return (
     <section className="request">
       <div className="request-info">{request.dayOfWeek?.day}</div>

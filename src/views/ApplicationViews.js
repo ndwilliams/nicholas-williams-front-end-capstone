@@ -4,6 +4,9 @@ import { Navbar } from "../components/navbar/NavBar";
 import { Welcome } from "../components/welcome/Welcome";
 import { RequestList } from "../components/requests/RequestList";
 import { Profile } from "../components/Profile";
+import { MyRequests } from "../components/requests/MyRequests";
+import { EditRequest } from "../components/requests/EditRequest";
+import { RequestDetails } from "../components/requests/RequestDetails";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -28,10 +31,17 @@ export const ApplicationViews = () => {
       >
         <Route index element={<Welcome />} />
         <Route
-          path="requests"
+          path="AllRequests"
           element={<RequestList currentUser={currentUser} />}
         />
-        <Route path="myrequests" element={<>My Requests</>} />
+        <Route path="MyRequests">
+          <Route
+            path="all"
+            element={<MyRequests currentUser={currentUser} />}
+          />
+          <Route path=":requestId" element={<RequestDetails />} />
+          <Route path=":requestId/edit" element={<EditRequest />} />
+        </Route>
         <Route path="profile" element={<Profile currentUser={currentUser} />} />
       </Route>
     </Routes>
