@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { editUser, getUserById } from "../services/userService";
+import { editUser, getUserById } from "../../services/userService";
 import { useNavigate } from "react-router-dom";
 
-export const Profile = ({ currentUser }) => {
+export const EditProfile = ({ currentUser }) => {
   const [user, setUser] = useState({});
-
   const navigate = useNavigate();
 
   useEffect(() => {
-    getUserById(currentUser.id).then((userObj) => {
-      setUser(userObj);
-    });
+    currentUser.id &&
+      getUserById(currentUser.id).then((userObj) => {
+        setUser(userObj);
+      });
   }, [currentUser]);
 
   const handleSave = (event) => {
@@ -25,7 +25,7 @@ export const Profile = ({ currentUser }) => {
     };
 
     editUser(updatedUser).then(() => {
-      navigate(`/profile`);
+      navigate(`/profile/view`);
     });
   };
 
@@ -35,14 +35,14 @@ export const Profile = ({ currentUser }) => {
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
-            name="name"
-            value={user.fullName}
+            name="fullName"
+            value={user.fullName ? user.fullName : ""}
             type="text"
             className="form-control"
             placeholder="Full Name"
             onChange={(event) => {
               const userCopy = { ...user };
-              userCopy.name = event.target.value;
+              userCopy.fullName = event.target.value;
               setUser(userCopy);
             }}
           ></input>
@@ -53,7 +53,7 @@ export const Profile = ({ currentUser }) => {
           <label htmlFor="email">Email:</label>
           <input
             name="email"
-            value={user.email}
+            value={user.email ? user.email : ""}
             type="email"
             className="form-control"
             placeholder="email"
@@ -70,7 +70,7 @@ export const Profile = ({ currentUser }) => {
           <label htmlFor="address">Home Address:</label>
           <input
             name="address"
-            value={user.address}
+            value={user.address ? user.address : ""}
             type="text"
             className="form-control"
             placeholder="Home Address"
@@ -87,7 +87,7 @@ export const Profile = ({ currentUser }) => {
           <label htmlFor="phone-number">Telephone Number:</label>
           <input
             name="phone-number"
-            value={user.phoneNumber}
+            value={user.phoneNumber ? user.phoneNumber : ""}
             type="tel"
             className="form-control"
             placeholder="telephone number"

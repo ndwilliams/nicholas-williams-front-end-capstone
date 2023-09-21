@@ -3,9 +3,12 @@ import { Outlet, Route, Routes } from "react-router-dom";
 import { Navbar } from "../components/navbar/NavBar";
 import { Welcome } from "../components/welcome/Welcome";
 import { RequestList } from "../components/requests/RequestList";
-import { Profile } from "../components/Profile";
+import { EditProfile } from "../components/profile/EditProfile";
 import { MyRequests } from "../components/requests/MyRequests";
 import { EditRequest } from "../components/requests/EditRequest";
+import { UserRequestDetails } from "../components/requests/UserRequestDetails";
+import { ViewProfile } from "../components/profile/ViewProfile";
+import { NewRequest } from "../components/requests/NewRequest";
 import { RequestDetails } from "../components/requests/RequestDetails";
 
 export const ApplicationViews = () => {
@@ -30,19 +33,36 @@ export const ApplicationViews = () => {
         }
       >
         <Route index element={<Welcome />} />
+        <Route path="requests">
+          <Route
+            path="viewAll"
+            element={<RequestList currentUser={currentUser} />}
+          />
+          <Route path=":requestId" element={<RequestDetails />} />
+        </Route>
+
         <Route
-          path="AllRequests"
-          element={<RequestList currentUser={currentUser} />}
+          path="pickuprequest"
+          element={<NewRequest currentUser={currentUser} />}
         />
         <Route path="MyRequests">
           <Route
             path="all"
             element={<MyRequests currentUser={currentUser} />}
           />
-          <Route path=":requestId" element={<RequestDetails />} />
+          <Route path=":requestId" element={<UserRequestDetails />} />
           <Route path=":requestId/edit" element={<EditRequest />} />
         </Route>
-        <Route path="profile" element={<Profile currentUser={currentUser} />} />
+        <Route path="profile">
+          <Route
+            path="view"
+            element={<ViewProfile currentUser={currentUser} />}
+          />
+          <Route
+            path="edit"
+            element={<EditProfile currentUser={currentUser} />}
+          />
+        </Route>
       </Route>
     </Routes>
   );

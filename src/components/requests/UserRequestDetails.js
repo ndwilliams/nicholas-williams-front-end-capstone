@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getRequestById } from "../../services/requestsService";
 
-export const RequestDetails = () => {
+export const UserRequestDetails = () => {
   const { requestId } = useParams();
-  const [request, setRequest] = useState({});
   const navigate = useNavigate();
+
+  const [request, setRequest] = useState({});
 
   useEffect(() => {
     getRequestById(requestId).then((requestObj) => setRequest(requestObj));
@@ -26,15 +27,18 @@ export const RequestDetails = () => {
           {request?.timeOfDayEnd?.timeOfDay}
         </span>
       </div>
-      <div>
-        Address:{" "}
-        <span className="request-info-address">{request.user?.address}</span>
-      </div>
-      <div className="request-info-phone-number">
-        {request.user?.phoneNumber}
-      </div>
       <div className="request-extra-notes">
         Notes: <span>{request.notes}</span>
+      </div>
+      <div className="btn-container edit-request">
+        <button
+          className="btn-edit-request"
+          onClick={() => {
+            navigate(`/MyRequests/${request.id}/edit`);
+          }}
+        >
+          Edit Request
+        </button>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@ import { getAllRequests } from "../../services/requestsService";
 import { Request } from "./Request";
 import { getAllDays } from "../../services/daysServices";
 import { RequestsFilterBar } from "./RequestsFilterBar";
+import { useNavigate } from "react-router-dom";
 
 export const RequestList = ({ currentUser }) => {
   const [allRequests, setAllRequests] = useState([]);
@@ -10,6 +11,8 @@ export const RequestList = ({ currentUser }) => {
   const [filteredRequests, setFilteredRequests] = useState([]);
   const [daysOfWeek, setDaysOfWeek] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllDays().then((daysArray) => {
@@ -62,6 +65,14 @@ export const RequestList = ({ currentUser }) => {
           );
         })}
       </article>
+      <button
+        className="btn"
+        onClick={() => {
+          navigate(`/pickuprequest`);
+        }}
+      >
+        Request Pickup
+      </button>
     </div>
   );
 };

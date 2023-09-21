@@ -1,0 +1,17 @@
+.btn,
+.btn-view-details,
+.btn-view-request,
+.btn-completed,
+.btn-edit-request,
+.btn-edit-profile {
+  align-self: flex-end;
+  margin-right: 3rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 4px -1px grey;
+  background-color: darksalmon;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+}
