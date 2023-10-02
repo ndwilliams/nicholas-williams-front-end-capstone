@@ -13,26 +13,34 @@ export const UserRequestDetails = () => {
   }, [requestId]);
 
   return (
-    <section key={request.id} className="request-container">
-      <div className="request-info">
+    <section
+      key={request.id}
+      className="mx-auto w-1/2 text-center font-sans text-lg content-center
+    my-10 bg-blue-400 bg-opacity-80 rounded-3xl"
+    >
+      <div className="p-1">
         Day of Week: <span>{request?.dayOfWeek?.name}</span>
       </div>
-      <div className="request-time-slot-container">
+      <div className="p-1">
         Time Slot:{" "}
         <span className="request-time-slot-info">
           {request?.timeOfDayStart?.timeOfDay} to
         </span>
-        <span className="request-time-slot-info">
-          {" "}
-          {request?.timeOfDayEnd?.timeOfDay}
-        </span>
+        <span> {request?.timeOfDayEnd?.timeOfDay}</span>
       </div>
-      <div className="request-extra-notes">
-        Notes: <span>{request.notes}</span>
-      </div>
-      <div className="btn-container edit-request">
+      {!request.notes ? (
+        ""
+      ) : (
+        <div className="request-extra-notes">
+          Notes: <span>{request.notes}</span>
+        </div>
+      )}
+
+      <div className="p-3">
         <button
-          className="btn-edit-request"
+          className="bg-amber-500 border-spacing-1
+           border-gray-400 text-white hover:bg-amber-400
+            duration-150 delay-75"
           onClick={() => {
             navigate(`/MyRequests/${request.id}/edit`);
           }}

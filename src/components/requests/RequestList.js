@@ -46,14 +46,16 @@ export const RequestList = ({ currentUser }) => {
   }, [allRequests, searchTerm]);
 
   return (
-    <div className="requests-container">
-      <h2>All Requests</h2>
+    <div className="py-3">
+      <h2 className="bg-zinc-400 bg-opacity-80 m-auto max-w-min rounded-md text-center text-3xl font-sans underline font-extrabold">
+        All Requests
+      </h2>
       <RequestsFilterBar
         setRequestsByDay={setRequestsByDay}
         daysOfWeek={daysOfWeek}
         setSearchTerm={setSearchTerm}
       />
-      <article className="requests">
+      <article className="">
         {filteredRequests.map((requestObj) => {
           return (
             <Request
@@ -65,14 +67,17 @@ export const RequestList = ({ currentUser }) => {
           );
         })}
       </article>
-      <button
-        className="btn"
-        onClick={() => {
-          navigate(`/pickuprequest`);
-        }}
-      >
-        Request Pickup
-      </button>
+      <footer className="flex text-center justify-center">
+        <button
+          className="my-5 text-xl font-serif font-extrabold bg-yellow-700 
+          shadow-xl border-black rounded-lg shadow-yellow-500 hover:bg-yellow-500 duration-100 delay-75"
+          onClick={() => {
+            navigate(`/makeNewRequest`);
+          }}
+        >
+          Make New Request
+        </button>
+      </footer>
     </div>
   );
 };

@@ -42,7 +42,7 @@ export const ApplicationViews = () => {
         </Route>
 
         <Route
-          path="pickuprequest"
+          path="makeNewRequest"
           element={<NewRequest currentUser={currentUser} />}
         />
         <Route path="MyRequests">

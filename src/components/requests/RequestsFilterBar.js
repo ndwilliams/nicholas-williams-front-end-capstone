@@ -4,9 +4,10 @@ export const RequestsFilterBar = ({
   setSearchTerm,
 }) => {
   return (
-    <div className="filter-bar">
+    <div className="flex justify-between mx-20 my-4">
       <select
         id="days"
+        className="text-center text-xl w-48 border-2 border-red-400 rounded-xl"
         onChange={(event) => {
           setRequestsByDay(event.target.value);
         }}
@@ -26,7 +27,7 @@ export const RequestsFilterBar = ({
         }}
         type="text"
         placeholder="Search Requests"
-        className="request-search"
+        className="h-10 w-56 p-3 text-xl text-center rounded-md placeholder:text-center border-gray-600 border-2 bg-green-100"
       />
     </div>
   );

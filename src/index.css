@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Import the google web fonts you want to use */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Quicksand&family=Roboto:wght@100&display=swap");
 
@@ -6,20 +10,6 @@ font-family: "Nunito", sans-serif;
 font-family: "Quicksand", sans-serif;
 font-family: "Roboto", sans-serif; 
 */
-
-/* COLOR PALETTE */
-/* Feel free to change these values and create your own color palette! https://coolors.co/ is a great resource */
-:root {
-  --primary: #ffb400;
-  --secondary: #00a6ed;
-  --info: #7fb800;
-  --warning: #f6511d;
-  --white: #ffffff;
-  --offWhite: #f2f2f3;
-  --dark: #3b3b3b;
-  --outline: #c3c0c0;
-  --appBackground: #dddade;
-}
 
 /* GLOBAL STYLES */
 body,
@@ -101,13 +91,11 @@ button {
   background-color: #71a500;
 }
 
-/* This CSS can be deleted. It is only used for the first chapter */
-.welcome {
-  text-align: center;
-  margin: 5rem 14rem;
-  font-size: 4rem;
-  color: aliceblue;
-  font-weight: bold;
-  text-shadow: 2px 3px 4px lightslategray;
+@layer components {
+  .register-input {
+    @apply border-4 bg-green-200 border-green-500 rounded-md px-3 py-1;
+  }
+  .navbar-item {
+    @apply px-8 py-4 bg-green-600 text-2xl transition-colors duration-150 hover:bg-green-400 border-2 border-opacity-40 border-green-800 rounded-full shadow-emerald-300 delay-75;
+  }
 }
-

@@ -42,12 +42,16 @@ export const EditRequest = () => {
   };
 
   return (
-    <form className="profile-form">
-      <fieldset className="form-group">
+    <form
+      className="text-center p-4 w-2/3 mx-auto my-20
+     bg-sky-500 rounded-xl font-sans bg-opacity-75"
+    >
+      <fieldset className="m-2">
         <label>Pickup Day:</label>
         <select
           name="dayOfWeekId"
           value={request.dayOfWeekId}
+          className="text-center"
           onChange={(event) => {
             const requestCopy = { ...request };
             requestCopy.dayOfWeekId = event.target.value;
@@ -65,18 +69,19 @@ export const EditRequest = () => {
         </select>
       </fieldset>
 
-      <fieldset className="form-group">
-        <label>Pickup Start Time:</label>
+      <fieldset className="m-2">
+        <label>Pickup Start Time: </label>
         <select
           name="timeOfDayStart.timeOfDay"
           value={request.timeOfDayStartId}
+          className="text-center"
           onChange={(event) => {
             const requestCopy = { ...request };
             requestCopy.timeOfDayStartId = event.target.value;
             setRequest(requestCopy);
           }}
         >
-          <option value={0}>Please select a pickup start time</option>
+          <option value={0}>Please select a pickup start time </option>
           {timeOfDayStarts.map((timeObj) => {
             return (
               <option key={timeObj.id} value={timeObj.id}>
@@ -87,18 +92,19 @@ export const EditRequest = () => {
         </select>
       </fieldset>
 
-      <fieldset className="form-group">
-        <label>Pickup End Time:</label>
+      <fieldset className="m-2">
+        <label>Pickup End Time: </label>
         <select
           name="timeOfDayEndId"
           value={request.timeOfDayEndId}
+          className="text-center"
           onChange={(event) => {
             const requestCopy = { ...request };
             requestCopy.timeOfDayEndId = event.target.value;
             setRequest(requestCopy);
           }}
         >
-          <option value={0}>Please select a pickup end time</option>
+          <option value={0}>Please select a pickup end time </option>
           {timeOfDayEnds.map((timeObj) => {
             return (
               <option key={timeObj.id} value={timeObj.id}>
@@ -109,13 +115,17 @@ export const EditRequest = () => {
         </select>
       </fieldset>
       <fieldset>
-        <div className="form-group">
-          <label htmlFor="additional-notes">Additional Notes</label>
+        <div className="m-2">
+          <label htmlFor="additional-notes">Additional Notes </label>
           <input
             name="request.notes"
             value={request.notes ? request.notes : ""}
             type="text"
-            className="form-control"
+            className="placeholder:italic placeholder:text-slate-400 block
+            bg-white w-full border
+            border-slate-300 rounded-md py-2 pl-9 pr-3 
+            shadow-sm focus:outline-none focus:border-sky-500
+             focus:ring-sky-500 focus:ring-1 sm:text-sm my-5"
             placeholder="Additional Notes"
             onChange={(event) => {
               const requestCopy = { ...request };
@@ -125,7 +135,13 @@ export const EditRequest = () => {
           />
         </div>
       </fieldset>
-      <button className="btn" onClick={handleSave}>
+      <button
+        className="bg-cyan-400 border-spacing-1
+           border-gray-400 text-white hover:bg-cyan-500
+            duration-150 delay-75 active:bg-cyan-600 focus:ring
+             focus:ring-cyan-200 m-3"
+        onClick={handleSave}
+      >
         Save Changes
       </button>
     </form>

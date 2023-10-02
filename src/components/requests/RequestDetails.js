@@ -12,30 +12,29 @@ export const RequestDetails = () => {
   }, [requestId]);
 
   return (
-    <section key={request.id} className="request-container">
-      <div className="request-info">
-        Day of Week: <span>{request?.dayOfWeek?.name}</span>
+    <section
+      key={request.id}
+      className="mx-auto w-1/2 text-center font-sans text-lg content-center
+       my-10 bg-blue-400 bg-opacity-80 rounded-3xl"
+    >
+      <div className="p-1">{request?.dayOfWeek?.name}</div>
+      <div className="p-1">
+        {" "}
+        <span>{request?.timeOfDayStart?.timeOfDay} to</span>
+        <span> {request?.timeOfDayEnd?.timeOfDay}</span>
       </div>
-      <div className="request-time-slot-container">
-        Time Slot:{" "}
-        <span className="request-time-slot-info">
-          {request?.timeOfDayStart?.timeOfDay} to
-        </span>
-        <span className="request-time-slot-info">
-          {" "}
-          {request?.timeOfDayEnd?.timeOfDay}
-        </span>
-      </div>
-      <div>
-        Address:{" "}
-        <span className="request-info-address">{request.user?.address}</span>
-      </div>
-      <div className="request-info-phone-number">
-        {request.user?.phoneNumber}
-      </div>
-      <div className="request-extra-notes">
-        Notes: <span>{request.notes}</span>
-      </div>
+      <div className="p-1">{request.user?.address}</div>
+      <div className="p-1">{request.user?.phoneNumber}</div>
+      {!request.notes ? (
+        ""
+      ) : (
+        <div className="p-2">
+          Notes:{" "}
+          <span className="p-1 bg-slate-200 border-2 rounded-xl">
+            {request.notes}
+          </span>
+        </div>
+      )}
     </section>
   );
 };

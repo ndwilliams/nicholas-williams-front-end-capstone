@@ -12,18 +12,22 @@ export const ViewProfile = ({ currentUser }) => {
   }, [currentUser]);
 
   return (
-    <section className="profile-container">
-      <div className="profile-info-name">Name: {user.fullName}</div>
-      <div className="profile-info-email">Email: {user.email}</div>
-      <div className="profile-info-address">Address: {user.address}</div>
-      <div className="profile-info-phone">Phone Number: {user.phoneNumber}</div>
+    <section
+      className="mx-auto p-4 m-20 w-1/2 text-center font-sans
+     text-lg content-center bg-indigo-400 rounded-xl"
+    >
+      <div className="m-1">{user.fullName}</div>
+      <div className="m-1">Email: {user.email}</div>
+      <div className="m-1">Address: {user.address}</div>
+      <div className="m-1">Phone Number: {user.phoneNumber}</div>
       <button
-        className="btn-edit-profile"
+        className="bg-emerald-500 m-2 text-white
+         hover:bg-emerald-300 duration-150 delay-75"
         onClick={() => {
           navigate("../edit");
         }}
       >
-        Edit
+        Edit Profile
       </button>
     </section>
   );

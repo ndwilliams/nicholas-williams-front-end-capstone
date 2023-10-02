@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
 import { createUser, getUserByEmail } from "../../services/userService";
 
 export const Register = (props) => {
@@ -52,62 +51,67 @@ export const Register = (props) => {
   };
 
   return (
-    <main style={{ textAlign: "center" }}>
-      <form className="form-login" onSubmit={handleRegister}>
-        <h1>Pass the Glass</h1>
-        <h2>Please Register</h2>
-        <fieldset>
-          <div className="form-group">
-            <input
-              onChange={updateUser}
-              type="text"
-              id="fullName"
-              className="form-control"
-              placeholder="Enter your full name"
-              required
-              autoFocus
-            />
-          </div>
+    <main className="fixed flex content-around justify-center text-center h-screen w-screen bg-cover bg-[url('https://www.recycleannarbor.org/sites/default/files/2020-11/AdobeStock_231362035_0.jpeg')]">
+      <form
+        className="grid fixed bg-green-100 bg-opacity-70 w-3/4 h-1/2 top-1/4 content-around rounded-xl border-black border-4 shadow-lg"
+        onSubmit={handleRegister}
+      >
+        <h1 className="text-5xl my-2 -mb-2 p-1">Pass the Glass</h1>
+        <h2 className="text-4xl my-3">Registration</h2>
+        <fieldset class="-m-1">
+          <input
+            onChange={updateUser}
+            type="text"
+            id="fullName"
+            className="register-input"
+            placeholder="Enter your full name"
+            required
+            autoFocus
+          />
         </fieldset>
-        <fieldset>
-          <div className="form-group">
+        <fieldset className="-m-1">
+          <div>
             <input
               onChange={updateUser}
               type="email"
               id="email"
-              className="form-control"
+              className="register-input"
               placeholder="Email address"
               required
             />
           </div>
         </fieldset>
-        <fieldset>
-          <div className="form-group">
+        <fieldset className="-m-1">
+          <div>
             <input
               onChange={updateUser}
               type="tel"
               id="phone-number"
-              className="form-control"
+              className="register-input"
               placeholder="Phone number"
               required
             />
           </div>
         </fieldset>
-        <fieldset>
-          <div className="form-group">
+        <fieldset className="-m-1">
+          <div>
             <input
               onChange={updateUser}
               type="text"
               id="address"
-              className="form-control"
+              class="w-1/2 border-4 bg-green-200 border-green-500 
+              rounded-md px-3 py-1"
               placeholder="Enter your full address"
               required
             />
           </div>
         </fieldset>
         <fieldset>
-          <div className="form-group">
-            <button className="login-btn btn-info" type="submit">
+          <div>
+            <button
+              className="outline-1 bg-green-600 transition-color hover:bg-green-400 duration-200 delay-50"
+              type="submit"
+            >
               Register
             </button>
           </div>

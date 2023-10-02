@@ -67,18 +67,24 @@ export const NewRequest = ({ currentUser }) => {
   };
 
   return (
-    <form className="request-form">
-      <h2 className="request-form-title">Add Pickup Request</h2>
+    <form
+      className="mx-auto w-2/3 text-center font-sans text-lg
+       content-center my-10 bg-blue-400 bg-opacity-80 rounded-3xl"
+    >
+      <h2 className="p-2 font-sans text-2xl italic ">Add Pickup Request </h2>
       <fieldset>
-        <div className="form-group">
-          <label htmlFor="pickupDay">Pickup Day</label>
+        <div className="p-2">
+          <label htmlFor="pickupDay">Pickup Day </label>
           <select
             name="dayOfWeekId"
             onChange={handleInputChange}
+            className="rounded-md px-2 py-1"
             value={newRequest.dayOfWeekId}
             required
           >
-            <option value={0}>Please select a day</option>
+            <option value={0} className="">
+              Please select a day{" "}
+            </option>
             {daysOfWeek.map((dayObj) => {
               return (
                 <option key={dayObj.id} value={dayObj.id}>
@@ -90,14 +96,15 @@ export const NewRequest = ({ currentUser }) => {
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group">
-          <label htmlFor="pickUpStartTime">Pickup Window Start</label>
+        <div className="p-2">
+          <label htmlFor="pickUpStartTime">Pickup Window Start </label>
           <select
             name="timeOfDayStartId"
             onChange={handleInputChange}
+            className="rounded-md px-2 py-1"
             value={newRequest.timeOfDayStartId}
           >
-            <option value={0}>Please select a time</option>
+            <option value={0}>Please select a time </option>
             {timeOfDayStarts.map((timeObj) => {
               return (
                 <option key={timeObj.id} value={timeObj.id}>
@@ -109,11 +116,12 @@ export const NewRequest = ({ currentUser }) => {
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group">
+        <div className="p-2">
           <label htmlFor="pickUpEnd">Pickup Window End</label>
           <select
             name="timeOfDayEndId"
             onChange={handleInputChange}
+            className="rounded-md px-2 py-1"
             value={newRequest.timeOfDayEndId}
           >
             <option value={0}>Please select a time</option>
@@ -128,18 +136,28 @@ export const NewRequest = ({ currentUser }) => {
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group"></div>
+        <div className="p-2"></div>
         <label htmlFor="notes">Additional Notes</label>
         <input
           name="notes"
           type="text"
           value={newRequest.notes}
-          className="form-control"
+          className="placeholder:italic placeholder:text-slate-400 block
+           bg-white w-full border
+           border-slate-300 rounded-md py-2 pl-9 pr-3 
+           shadow-sm focus:outline-none focus:border-sky-500
+            focus:ring-sky-500 focus:ring-1 sm:text-sm my-5"
           placeholder="Additional Notes"
           onChange={handleInputChange}
         ></input>
       </fieldset>
-      <button className="btn" onClick={handleSave}>
+      <button
+        className="bg-cyan-400 border-spacing-1
+           border-gray-400 text-white hover:bg-cyan-500
+            duration-150 delay-75 active:bg-cyan-600 focus:ring
+             focus:ring-cyan-200 m-3"
+        onClick={handleSave}
+      >
         Make New Request
       </button>
     </form>

@@ -30,16 +30,17 @@ export const EditProfile = ({ currentUser }) => {
   };
 
   return (
-    <form className="profile-form">
+    <form className="text-center p-4 w-2/3 mx-auto my-20 bg-indigo-400
+     rounded-xl font-sans">
       <fieldset>
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
+        <div className="m-2">
+          <label htmlFor="name">Name: </label>
           <input
             name="fullName"
             value={user.fullName ? user.fullName : ""}
             type="text"
-            className="form-control"
             placeholder="Full Name"
+            className="text-center"
             onChange={(event) => {
               const userCopy = { ...user };
               userCopy.fullName = event.target.value;
@@ -49,14 +50,14 @@ export const EditProfile = ({ currentUser }) => {
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
+        <div className="m-2">
+          <label htmlFor="email">Email: </label>
           <input
             name="email"
             value={user.email ? user.email : ""}
             type="email"
-            className="form-control"
             placeholder="email"
+            className="text-center"
             onChange={(event) => {
               const userCopy = { ...user };
               userCopy.email = event.target.value;
@@ -66,13 +67,13 @@ export const EditProfile = ({ currentUser }) => {
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group">
-          <label htmlFor="address">Home Address:</label>
+        <div className="m-2">
+          <label htmlFor="address">Home Address: </label>
           <input
             name="address"
             value={user.address ? user.address : ""}
             type="text"
-            className="form-control"
+            className="w-full max-w-xs mx-2"
             placeholder="Home Address"
             onChange={(event) => {
               const userCopy = { ...user };
@@ -83,13 +84,13 @@ export const EditProfile = ({ currentUser }) => {
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group">
-          <label htmlFor="phone-number">Telephone Number:</label>
+        <div className="m-2">
+          <label htmlFor="phone-number">Telephone Number: </label>
           <input
             name="phone-number"
             value={user.phoneNumber ? user.phoneNumber : ""}
             type="tel"
-            className="form-control"
+            className="text-center"
             placeholder="telephone number"
             onChange={(event) => {
               const userCopy = { ...user };
@@ -99,7 +100,12 @@ export const EditProfile = ({ currentUser }) => {
           ></input>
         </div>
       </fieldset>
-      <button className="btn" onClick={handleSave}>
+      <button
+        className="bg-amber-500 border-spacing-1
+           border-gray-400 text-white hover:bg-amber-400
+            duration-150 delay-75"
+        onClick={handleSave}
+      >
         Save Changes
       </button>
     </form>

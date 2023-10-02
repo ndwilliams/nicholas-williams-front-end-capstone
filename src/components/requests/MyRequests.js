@@ -34,39 +34,40 @@ export const MyRequests = ({ currentUser }) => {
 
   const showRequest = (requestObj) => {
     return (
-      <section key={requestObj.id} className="request-container">
-        <div className="request-info">
-          Day of Week: <span>{requestObj.dayOfWeek.name}</span>
+      <section
+        key={requestObj.id}
+        className="flex justify-between p-5 mx-8 my-5 border-4
+      bg-green-100 bg-opacity-90 border-green-500 rounded-xl"
+      >
+        <div className="pt-1.5">
+          <span>{requestObj.dayOfWeek.name}</span>
         </div>
-        <div className="request-time-slot-container">
-          Time Slot:{" "}
-          <span className="request-time-slot-info">
-            {requestObj.timeOfDayStart.timeOfDay} to
-          </span>
-          <span className="request-time-slot-info">
-            {" "}
-            {requestObj.timeOfDayEnd.timeOfDay}
-          </span>
+        <div className="pt-2">
+          {" "}
+          <span className="">{requestObj.timeOfDayStart.timeOfDay} to</span>
+          <span className=""> {requestObj.timeOfDayEnd.timeOfDay}</span>
         </div>
-        <div className="btn-container">
+        <div className="">
           <button
-            className="btn-completed"
+            className="p-2 bg-red-400 border-2 border-red-500 rounded-2xl
+            hover:bg-red-300 duration-150 delay-50"
             onClick={() => {
               handleCompleted(requestObj);
               navigate(`/myRequests/all`);
             }}
           >
-            Completed?
+            Delete
           </button>
         </div>
-        <div className="btn-container view-request">
+        <div className="">
           <button
-            className="btn-view-request"
+            className="p-2 bg-green-400 border-2 border-green-500 rounded-2xl
+            hover:bg-green-300 duration-150 delay-50"
             onClick={() => {
               navigate(`/MyRequests/${requestObj.id}`);
             }}
           >
-            View Request
+            Edit Request
           </button>
         </div>
       </section>
@@ -74,10 +75,21 @@ export const MyRequests = ({ currentUser }) => {
   };
 
   return (
-    <article className="requests">
+    <article>
       {requests.map((requestObj) =>
         !requestObj.completed ? showRequest(requestObj) : ""
       )}
+      <footer className="flex text-center justify-center">
+        <button
+          className="p-2 text-xl font-serif font-extrabold bg-yellow-700 
+          shadow-xl border-black rounded-lg shadow-yellow-500 hover:bg-yellow-500 duration-100 delay-75"
+          onClick={() => {
+            navigate(`/makeNewRequest`);
+          }}
+        >
+          Make New Request
+        </button>
+      </footer>
     </article>
   );
 };
