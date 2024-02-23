@@ -31,13 +31,11 @@ Pass the Glass is a user-friendly app designed to connect and encourage environm
   ```
   git clone https://github.com/ndwilliams/pass-the-glass
   ```
-
 3. Navigate to local directory
 
   ```
   cd pass-the-glass
   ```
-
  4. Install npm and start the app:
 
   ```
