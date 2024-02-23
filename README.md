@@ -28,19 +28,19 @@ Pass the Glass is a user-friendly app designed to connect and encourage environm
 
 2. Clone this repo to your local workspace:
   
-```
-git clone https://github.com/ndwilliams/pass-the-glass
-```
+  ```
+  git clone https://github.com/ndwilliams/pass-the-glass
+  ```
 
 3. Navigate to local directory
 
-```
-cd pass-the-glass
-```
+  ```
+  cd pass-the-glass
+  ```
 
  4. Install npm and start the app:
 
-```
-npm install
-npm start
-```
+  ```
+  npm install
+  npm start
+  ```
