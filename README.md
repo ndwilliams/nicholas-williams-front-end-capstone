@@ -22,3 +22,25 @@ Pass the Glass is a user-friendly app designed to connect and encourage environm
 <img width="1706" alt="Screenshot 2024-02-23 at 3 48 25 PM" src="https://github.com/ndwilliams/pass-the-glass/assets/138155020/c1b1f9fa-d181-4892-a876-ff904734dd48">
 <img width="864" alt="Screenshot 2024-02-23 at 3 48 55 PM" src="https://github.com/ndwilliams/pass-the-glass/assets/138155020/2fef6cc9-32e4-44d2-9d0d-c36f3c31e5c6">
 <img width="862" alt="Screenshot 2024-02-23 at 3 49 33 PM" src="https://github.com/ndwilliams/pass-the-glass/assets/138155020/cbc63d5a-d53d-4e53-b4a6-16a78ea3a1cc">
+
+## Testing
+1. Start the JSON database server, with the instructions [found here](https://github.com/ndwilliams/pass-the-glass-api).
+
+2. Clone this repo to your local workspace:
+  
+```
+git clone https://github.com/ndwilliams/pass-the-glass
+```
+
+3. Navigate to local directory
+
+```
+cd pass-the-glass
+```
+
+ 4. Install npm and start the app:
+
+```
+npm install
+npm start
+```
